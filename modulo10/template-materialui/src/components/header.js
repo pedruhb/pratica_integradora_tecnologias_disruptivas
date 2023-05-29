@@ -6,11 +6,29 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 //import MenuIcon from '@mui/icons-material/Menu';
- 
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme({
+  status: {
+    danger: '#e53e3e',
+  },
+  palette: {
+    primary: {
+      main: '#0971f1',
+      darker: '#053e85',
+    },
+    neutral: {
+      main: '#64748B',
+      contrastText: '#fff',
+    },
+  },
+});
+
 function Header() {
-    return (
-        <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+  return (
+    <ThemeProvider theme={theme}>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static" color="neutral" variant="contained">
           <Toolbar>
             <IconButton
               size="large"
@@ -29,7 +47,8 @@ function Header() {
           </Toolbar>
         </AppBar>
       </Box>
-    );
+    </ThemeProvider>
+  );
 }
- 
+
 export default Header;
